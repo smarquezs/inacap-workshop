@@ -1,0 +1,18 @@
+db:
+  image: mysql:5.7
+  container_name: inacap-db
+  env_file:
+    - .env
+webapp:
+  build: .
+  command: bundle exec rails s -p 3000 -b '0.0.0.0'
+  container_name: inacap
+  working_dir: /home/app/webapp
+  ports:
+    - "3000:3000"
+  env_file:
+    - .env
+  links:
+    - db
+  volumes:
+    - .:/home/app/webapp
