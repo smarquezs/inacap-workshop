@@ -14,5 +14,3 @@ webapp:
     - .env
   links:
     - db
-  volumes:
-    - .:/home/app/webapp
