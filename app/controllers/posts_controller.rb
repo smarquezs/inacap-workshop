@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    Rails.logger.info "PARAMS #{params}"
     @posts = Post.all
   end
 
